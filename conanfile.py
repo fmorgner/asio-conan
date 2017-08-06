@@ -10,7 +10,9 @@ class ASIOConan(ConanFile):
         'model using a modern C++ approach.'
     )
     version = '1.10.8'
-    settings = None
+    settings = (
+        'os',
+    )
     url = 'https://github.com/fmorgner/asio-conan.git'
     author = 'Felix Morgner (felix.morgner@gmail.com)'
     license = 'Boost Software License, Version 1.0'
@@ -30,4 +32,8 @@ class ASIOConan(ConanFile):
 
     def package_info(self):
         self.cpp_info.includedirs = ['include']
-        self.cpp_info.defines = ['-DASIO_STANDALONE']
+        self.cpp_info.defines = ['ASIO_STANDALONE']
+        if not self.settings.os == 'Windows':
+            self.cpp_info.cppflags = [
+                '-pthread',
+            ]
