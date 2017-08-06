@@ -30,3 +30,4 @@ class ASIOConan(ConanFile):
 
     def package_info(self):
         self.cpp_info.includedirs = ['include']
+        self.cpp_info.defines = ['-DASIO_STANDALONE']
