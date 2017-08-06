@@ -27,3 +27,6 @@ class ASIOConan(ConanFile):
     def package(self):
         self.copy('*.hpp', src='asio/asio/include', dst='include')
         self.copy('*.ipp', src='asio/asio/include', dst='include')
+
+    def package_info(self):
+        self.cpp_info.includedirs = ['include']

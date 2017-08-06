@@ -1,8 +1,7 @@
-#include "asio/io_service.hpp"
+#include "asio/buffer.hpp"
 
 int main()
   {
-  (void)asio::io_service{};
+  int data[42]{};
+  (void)asio::buffer(data);
   }
-
-
